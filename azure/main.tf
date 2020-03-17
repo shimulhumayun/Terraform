@@ -27,13 +27,13 @@ resource "azurerm_resource_group" "rg" {
 } */
 
 module "vnet" {
-  source = "../vnet"
+  source = "./vnet"
   vnet-name ="vnet-mod"
   rg-name   =azurerm_resource_group.rg.name
 }
 
 module "storage" {
-  source = "../storage"
+  source = "./storage"
   storage_account_name ="terraformstoragemod"
   rg-name         =azurerm_resource_group.rg.name
   location        = azurerm_resource_group.rg.location
@@ -41,7 +41,7 @@ module "storage" {
 } 
 
  module "vm" {
-    source= "../vm/windows"
+    source= "./vm/windows"
     rg-name         =azurerm_resource_group.rg.name
     location        = azurerm_resource_group.rg.location
     subnet-id       = module.vnet.subnet-id
