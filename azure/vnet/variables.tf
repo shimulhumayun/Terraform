@@ -13,6 +13,3 @@ variable "location" {
     default = "East US"
 }
 
-variable "policy_id" {
-
-}
