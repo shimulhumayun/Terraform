@@ -11,6 +11,9 @@
 *.tfstate
 *.tfstate.*
 
+#Variable data file
+*.tfvars
+
 # Crash log files
 crash.log
 
