@@ -1,6 +1,0 @@
-subscription_id = "e149621b-2d3e-499e-af12-b73b3ae66bdb"
-client_id       = "4fe74161-e64d-4be8-b649-52ec54c349b5"
-client_secret   = "uC5@L4SZ1Oa5hTQucIVIjLiNPAtVu_?["
-tenant_id       = "927ac932-82c2-45b0-9fa2-d574650ac400"
-userName = "shimul"
-password="Vpdfcs4s199@"
