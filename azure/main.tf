@@ -8,15 +8,9 @@ provider "azurerm" {
   features {}
 }
 
-variable "userName" {
-}
-
-variable "password" {
-}
-
 resource "azurerm_resource_group" "rg" {
-  name     = "terraform-mod2"
-  location = "East US"
+  name     = var.rg-name
+  location = var.location
 }
 
 /* module "policy" {
@@ -28,11 +22,25 @@ resource "azurerm_resource_group" "rg" {
 
 module "vnet" {
   source = "./vnet"
-  vnet-name ="vnet-mod"
+  vnet-name =var.vnet-name
   rg-name   =azurerm_resource_group.rg.name
+  location  = azurerm_resource_group.rg.location
+}
+module "subnet" {
+  rg-name   =azurerm_resource_group.rg.name
+  location  = azurerm_resource_group.rg.location
+  source = "./subnet"
+  vnet-name =module.vnet.get-name
+  subnetName=var.subnetName
+  subnetPrefix=var.subnetPrefix #"10.0.0.0/24"
+  #"/subscriptions/e149621b-2d3e-499e-af12-b73b3ae66bdb/resourceGroups/storage-mod2/providers/Microsoft.Network/networkSecurityGroups/test"
+  nsg-id=var.nsg-id
+  vnet-id=module.vnet.get-name
 }
 
-module "storage" {
+
+
+/* module "storage" {
   source = "./storage"
   storage_account_name ="terraformstoragemod"
   rg-name         =azurerm_resource_group.rg.name
@@ -48,4 +56,4 @@ module "storage" {
     userName        =var.userName
     password        =var.password
 } 
-
+ */

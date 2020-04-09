@@ -1,0 +1,50 @@
+{
+  "mode": "All",
+  "policyRule": {
+    "if": {
+      "anyOf": [
+        {
+          "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Network/virtualNetworks"
+            },
+            {
+              "not": {
+                "field": "Microsoft.Network/virtualNetworks/subnets/networkSecurityGroup.id",
+                "equals": "[parameters('nsgId')]"
+              }
+            }
+          ]
+        },
+        {
+          "allOf": [
+            {
+              "field": "type",
+              "equals": "Microsoft.Network/virtualNetworks/subnets"
+            },
+            {
+              "not": {
+                "field": "Microsoft.Network/virtualNetworks/subnets/networkSecurityGroup.id",
+                "equals": "[parameters('nsgId')]"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "then": {
+      "effect": "deny"
+    }
+  },
+  "parameters": {
+    "nsgId": {
+      "type": "String",
+      "metadata": {
+        "displayName": "NSG Id",
+        "description": "Resource Id of the Network Security Group"
+      },
+      "defaultValue": "/subscriptions/e149621b-2d3e-499e-af12-b73b3ae66bdb/resourceGroups/storage-mod2/providers/Microsoft.Network/networkSecurityGroups/test"
+    }
+  }
+}
