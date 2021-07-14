@@ -1,2 +1,1 @@
 
-Referring to the confluence page here, we'd have to request a " cross-account" access. My understanding is that a cross-account is for a user/application trying to access the data from another account. The entitlements in the access central are for that specific use case. We're trying to craft roles that will enable data owners to view their data. However, I don't know if every data owner has an AWS account.
