@@ -1,3 +1,2 @@
 
-Hi Kelsy, I hope you're doing well. I am working on creating roles for AWS cdd datalake account. I have a question I was wondering if you could help.
-What is the process to request roles in access central? We'd like to map the access central role to an AWS role. For example, if a user requires access to a specific role then they should be able to submit the request through access central. If the role owner approves the request, then grant them access to that specific role. 
+Thanks for the quick response. We have a new requirement where we're asked to redesign the access control. The current broad-read access role allows the data owner to view data unrestricted. So the goal here is to ensure minimum privilege and only allow data owner to view data that they own. We wanted create roles with specific data concepts and have them mapped to access central. 
